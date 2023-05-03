@@ -2,6 +2,7 @@ package generic;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -80,6 +81,9 @@ public class Base_Test extends UtilityMethods{
         test.log(LogStatus.INFO, "WebPage is displayed successfully");
 		driver.get(URL);
 		initObjects();
+		action = new Actions(driver);
+		action.click().perform();
+		driver.findElement(By.xpath("//button[text()='No thanks!']")).click();
 	}
 
 	@AfterClass(alwaysRun=true)
